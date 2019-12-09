@@ -1,0 +1,73 @@
+/* Webfont: Stasea 1 */
+@font-face {
+    font-family: 'Stasea1';
+    src: url('../assets/fonts/Stasea1.woff') format('woff');
+    src: url('../assets/fonts/Stasea1.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Stasea 2 */
+@font-face {
+    font-family: 'Stasea2';
+    src: url('../assets/fonts/Stasea2.woff') format('woff');
+    src: url('../assets/fonts/Stasea2.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+.preloader {
+    bottom: 10px;
+    right: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#exit, #start, #reload {
+    cursor: pointer;
+}
+
+
+text {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Stasea2;
+    fill: #f4f6f7;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: url("../assets/images/bg.png");
+}
+
+canvas, svg {
+    display: block;
+    position: absolute;
+}
+
+.text {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Stasea1;
+    fill: #f4f6f7;
+}
+
+.rect {
+    fill: #006b29;
+    stroke: #00680c;
+}
+
+.logo {
+    font-size: 90px;
+    font-weight: bold;
+    font-family: Stasea2;
+    fill: #006b29;
+}
+
+
