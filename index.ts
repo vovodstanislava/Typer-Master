@@ -4,7 +4,8 @@ import {UserInterface} from "./src/components/UI";
 
 class Game {
   private backSound: HTMLAudioElement;
-  private loseSound: HTMLAudioElement;
+  private pewSound: HTMLAudioElement;
+  private endSound: HTMLAudioElement;
   private target: HTMLImageElement;
   private score: number;
   private speedX: number;
@@ -24,7 +25,8 @@ class Game {
     this.score = 0;
     this.userInterface = new UserInterface();
     this.backSound = new Audio();
-    this.loseSound = new Audio();
+    this.pewSound = new Audio();
+    this.endSound = new Audio();
     this.canvas = document.getElementById('canvas');
     this.context = this.canvas.getContext('2d');
   }
@@ -82,7 +84,7 @@ class Game {
   // Функция которая будет вызвана когда хоть одна буква дойдет до мишени
   private async gameEnd(): Promise<any> {
     this.userInterface.showGameOver(this.score);
-    await this.loseSound.play();
+    await this.endSound.play();
 
     // Ждем что выберет пользователи (try - кнопка повторить, catch - кнопка выхода)
     try {
@@ -113,8 +115,9 @@ class Game {
 
   // Функция загрузки audio
   private async loadSound(): Promise<any> {
-    this.backSound.src = (await import('./src/assets/sound/back.mp3')).default;
-    this.loseSound.src = (await import('./src/assets/sound/win.mp3')).default;
+    this.backSound.src = (await import('./src/assets/sound/background.mp3')).default;
+    this.pewSound.src = (await import('./src/assets/sound/pew.mp3')).default;
+    this.endSound.src = (await import('./src/assets/sound/end.mp3')).default;
   }
 
   // Отрисовка букв и мишени на canvas
@@ -172,7 +175,8 @@ class Game {
       && this.letters[letterIndex].y < window.innerHeight
     ) {
       this.letters.splice(letterIndex, 1);
-      this.score += 1
+      this.score += 1;
+      this.pewSound.play();
     }
   }
 
